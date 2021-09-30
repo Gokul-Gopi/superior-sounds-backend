@@ -17,8 +17,8 @@ const getCartById = async (req, res, next) => {
         next()
 
     } catch (err) {
-        res.status(400).json(`Error: ${err.message}`)
         console.log(err.message)
+        res.status(400).json(`Error: ${err.message}`)
     }
 }
 
@@ -30,8 +30,8 @@ const getCartItems = async (req, res, next) => {
         return res.json({ userCart: cart.items })
 
     } catch (err) {
-        res.status(400).json({ response: err.message })
         console.log(err.message)
+        res.status(400).json({ response: err.message })
     }
 
 }
@@ -81,8 +81,8 @@ const modifyCartItemsQty = async (req, res) => {
         await cart.populate('items.product').execPopulate()
         return res.json({ userCart: cart.items })
     } catch (err) {
-        res.status(400).json({ message: err.message })
         console.log(err.message)
+        res.status(400).json({ message: err.message })
     }
 }
 
